@@ -1,9 +1,7 @@
-package com.example.eshop;
+package Cart;
 
-import com.example.eshop.cart.Cart;
 import com.example.eshop.cart.CartItem;
 import com.example.eshop.product.DigitalProduct;
-import com.example.eshop.product.Product;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
