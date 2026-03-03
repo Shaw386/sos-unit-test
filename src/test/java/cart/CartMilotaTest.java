@@ -1,4 +1,4 @@
-package Cart;
+package cart;
 
 import com.example.eshop.cart.CartItem;
 import com.example.eshop.product.DigitalProduct;
@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CartTest {
+public class CartMilotaTest {
     @Test
     @DisplayName("Should validate cart functionality")
     void validateCartFunctionality() {
