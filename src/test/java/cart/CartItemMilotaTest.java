@@ -4,6 +4,8 @@ import com.example.eshop.cart.CartItem;
 import com.example.eshop.product.DigitalProduct;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.math.BigDecimal;
 
@@ -11,9 +13,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CartItemMilotaTest {
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(ints = {1, 3, 5, 3, 15, Integer.MAX_VALUE})
     @DisplayName("Should create CartItem with valid quantity")
-    void shouldCreateCartItem() {
+    void shouldCreateCartItem(int quantity) {
 
         DigitalProduct product = new DigitalProduct(
                 "JUnit Book",
@@ -22,12 +25,12 @@ class CartItemMilotaTest {
                 "https://test.cz"
         );
 
-        CartItem item = new CartItem(product, 2);
+        CartItem item = new CartItem(product, quantity);
 
         assertAll(
                 () -> assertEquals(product, item.getProduct()),
-                () -> assertEquals(2, item.getQuantity()),
-                () -> assertEquals(new BigDecimal("200.00"), item.getTotalPrice())
+                () -> assertEquals(quantity, item.getQuantity()),
+                () -> assertEquals(new BigDecimal("100.00").multiply(new BigDecimal(quantity)), item.getTotalPrice())
         );
     }
 
